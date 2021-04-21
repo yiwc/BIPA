@@ -1,0 +1,7 @@
+data/inss_v1s/train/161000353565_r_png.rf.9fa7b60432345bf2e25bd200de148bd5.jpg
+data/inss_v1s/train/16100039011_r_png.rf.ecb8cd74ec9dfbb56d13cf6c9a457d47.jpg
+data/inss_v1s/train/16100039014_r_png.rf.aed4a5b6524c4b1502533cc3630c38a2.jpg
+data/inss_v1s/train/16100036426_r_png.rf.c3a68bcc3631cf0ac4a1fb2e1a13b53e.jpg
+data/inss_v1s/train/16100038341_r_png.rf.64a068a4006beff1a5c9b5725d5fe8fa.jpg
+data/inss_v1s/train/16100036421_r_png.rf.954060c685df45c91fb0602d45c7a901.jpg
+data/inss_v1s/train/16100038349_r_png.rf.ea6adec976786a417ca4fc5084dc95db.jpg

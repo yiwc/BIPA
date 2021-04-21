@@ -1,0 +1,55 @@
+ARC DGX Train:
+
+m="screw_v12s"
+t="yw_srw_v15"
+e=50
+pt=5610
+gpu=3
+CUDA_VISIBLE_DEVICES=$gpu python BS3_vec.py -pre $m -t $t -e $e -c 30 -p dualcnn --test_env $t -g 3 -pt $pt
+
+
+Server:
+python BS3_server.py -n ganv5r2_v15100e4
+
+===============================
+
+m="yw_insf_v16"
+t="yw_insf_v16"
+e=150
+pt=5610
+gpu=3
+CUDA_VISIBLE_DEVICES=$gpu python BS3_vec.py -pre $m -t $t -e $e -c 30 -p dualcnn --test_env $t -g 3 -pt $pt
+
+
+python BS3_server.py -n PPO2_yw_insf_v15_ins_v63s150_60.0e4
+
+m="ins_v63s"
+t="yw_insf_v15"
+e=60
+pt=5630
+gpu=3
+CUDA_VISIBLE_DEVICES=$gpu python BS3_vec.py -pre $m -t $t -e $e -c 30 -p dualcnn --test_env $t -g 3 -pt $pt
+
+m="ins_v63s150"
+t="yw_insf_v15"
+e=60
+pt=5600
+gpu=2
+CUDA_VISIBLE_DEVICES=$gpu python BS3_vec.py -pre $m -t $t -e $e -c 30 -p dualcnn --test_env $t -g 3 -pt $pt
+
+m="dgxv62"
+t="yw_insf_v15"
+e=50
+pt=5600
+gpu=2
+CUDA_VISIBLE_DEVICES=$gpu python BS3_vec.py -pre $m -t $t -e $e -c 30 -p dualcnn --test_env $t -g 3 -pt $pt
+
+
+
+
+m="screw_v12s"
+t="yw_srw_v15"
+e=50
+pt=5610
+gpu=2
+CUDA_VISIBLE_DEVICES=$gpu python BS3_vec.py -pre $m -t $t -e $e -c 30 -p dualcnn --test_env $t -g 3 -pt $pt

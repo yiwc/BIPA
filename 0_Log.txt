@@ -1,0 +1,195 @@
+# models id and comments
+001 changed camera pos. official mlpLSTM with bs2.
+002 try simper one eye lstm
+
+# 2021 2 16
+[ ] can not get
+
+# 2021 1 29
+[] build fakeimg workflow
+
+# 2021 1 27
+[x] Sim ALPoDeRL (Alignment with Line and Point Detection using RL)
+    [x] name alpoderl
+    [x] obs [a,b,c,d]
+        left cam
+        p1 point on the ref line
+        p2 point on the postive point (bolthead in insert, or sccrew head in )
+        p3 point of the passive point
+        right cam
+        p4 point on the ref line
+        p5 point on the postive point
+        p6 point of the passive point
+
+        #a= line1 (x2-x1)/(y2-y1)  xy in image pixel x from left to right, y is from top to bottom
+        #b= line2 (x3-x2)/(y3-y2)
+        #c= line3 (x5-x4)/(y5-y4)
+        #d= line4 (x6-x5)/(y6-y5)
+        #a= (x2-x1)/((y2-y1)**2+(x2-x1)**2)**0.5
+        #b= (x3-x2)/((y3-y2)**2+(x3-x2)**2)**0.5
+        #c= (x5-x4)/((y5-y4)**2+(x5-x4)**2)**0.5
+        #d= (x6-x5)/((y6-y5)**2+(x6-x5)**2)**0.5
+
+        a=
+        b=
+        c=
+        d=
+
+        [x] normalize
+
+
+     [x] Camera position change per episode
+     [x] p1 and p4 noise
+     [x] plot all the observe into distribution
+
+    [x] bug: positve point disappear while approach the hole
+
+ [x] show RL without Recurrent can not work
+ [x] Recurrent RL with BS2
+
+
+#==============
+RL:
+5670
+
+GAN:
+port n gpu name
+5600 3 ? ins_v63s150
+5610 3 ? screw_v12s
+5630 3 ? ins_v63s
+5640 3 1 ins_v63s300
+5650 3 1 ins_v63
+5660 1 0 ins_v62
+5662 1 0 ins_v62s
+
+
+# 2021 1 7
+see 2021.1.5
+[] make a fast testing dataset
+
+[] ins_v7
+[] ins_v7big
+[] ins_v7mass
+[] ins_v7s250
+
+
+[x]make insf_v16
+    same setting as v13,but no img save, no base random (same as v15)
+[x]make dataset ins_v7
+
+# 2021.1.6
+[ ] setup insert auto data collection
+
+
+# 2021.1.5
+[ ]ins_v63s150
+   [x] train gan
+   [x] test gan: 1 or 2 error, most blur
+   [ ] test gan with rl env
+   [x] train rl
+   [ ] test rl
+   [ ] real test rl
+
+[ ]ins_v63s300
+   [x] train gan
+   [x] test gan: 2 error pic/150
+   [x] teat gan with rl env: bad, bolt disapear
+   [ ] train rl
+   [ ] test rl
+   [ ] real test rl
+
+[ ]ins_v63s500
+   [R] train gan
+   [ ] test gan
+   [ ] teat gan with rl env
+   [ ] train rl
+   [ ] test rl
+   [ ] real test rl
+
+[ ]ins_v63s
+   [x] train gan
+   [x] test gan : 1/150 err, most stable
+   [x] teat gan with rl env:1, bolt disapear
+   [x] train rl
+   [ ] test rl
+   [ ] real test rl
+
+[ ]ins_v63
+   [x] train gan
+   [x] test gan: 5/150 err,s
+   [x] teat gan with rl env: 0, Bad! not work
+   [ ] train rl
+   [ ] test rl
+   [ ] real test rl
+
+[ ]screw_v12s
+   [x] train gan
+   [x] test gan : try real robot to see if it works
+   [x] teat gan with rl env
+   [x] train rl
+   [x] test rl: work
+   [ ] real test rl
+
+[ ]screw_v12s500
+   [x] train gan
+   [ ] test gan
+   [ ] teat gan with rl env
+   [ ] train rl
+   [ ] test rl
+   [ ] real test rl
+
+[ ] GuoSheng
+   [ ] make real test dataset
+
+[ ] Real Robot
+   [ ] setup Screw
+
+
+# 2021.1.4
+
+[x] Check small dataset in training GAN
+    [x] GAN ins_v63s150
+        [x] run : nscc tmux 0
+        [x] test: result:
+                    rl env: blink
+    [x] GAN ins_v63s300
+        [x] run : nscc tmux 0
+        [z] test
+    [x] GAN ins_v63s500
+        [x] run : nscc tmux 0
+        [z] test
+!   [x] GAN ins_v63s1000->v63s
+        [x] run
+        [x] test => shows a very good position match !
+        [x] test2 => Acceptable. Next time train dataset with 1000 imgs is ok.
+                     rl env: blink and disapper bolt
+    [x] GAN ins_v63
+        [x] run
+        [z] test
+    [x] test GAN ins_v62s
+
+
+[R] Train RL on insv63s
+    [x] start ins_v63 server
+    [z] waiting for insv63s training
+[R] Train RL on ins_v63s150
+    [x] start ins_v63 server
+    [R] training
+    [z] test
+
+[N] Check RL insv62 on real robot
+    [x] test PPO2_yw_insf_v15_dgxv62_50.0e4
+        Acceptable, 9~10/10 in simulation
+    [N] test on real robot
+        [z] testing on insv63s
+
+[z] RL in Screw
+    [x] test PPO2_yw_srw_v15_screw_v12s_50.0e4
+        Quite OK 9~10/10 in simulation
+        Small dataset(screw_v12s 150 training pics) looks OK
+    [x] find reason and retrain
+        => no problem, just evaluation environemnt setup bug
+    [z] test on real robot with screw_v12s RL
+
+[] Real Robot
+    [] setup Screw
