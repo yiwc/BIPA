@@ -6,6 +6,18 @@
 conda env create -f bs3.yaml
 `
 
+two packages you may need
+
+'
+git clone https://github.com/yiwc/HRClib.git
+
+git clone https://github.com/yiwc/rl_environment.git
+'
+
+HRClib is for connect to the KINOVA robot.
+
+rl_environment is for training envs.
+
 ## Usage on Robot
 
 ### 1 run yolo on the server
